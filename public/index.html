@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot Interface with 3D Model</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chatbot">
+        <div class="header">
+            <button class="menu-btn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <div class="logo">
+                <img src="https://782771295fc926251f8dc891d8142c83.cdn.bubble.io/f1729252871457x365633330131603700/logo-light.png" alt="INOVA AERODROME AI">
+            </div>
+            <button class="share-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span style="margin-left: 4px;">SHARE</span>
+            </button>
+        </div>
+        <div class="main-content">
+            <div class="avatar-section">
+                <div class="avatar-model">
+                    <model-viewer
+                        id="model"
+                        alt="3D Model"
+                        src="https://782771295fc926251f8dc891d8142c83.cdn.bubble.io/f1729245303885x109221669710184880/ImageToStl.com_c1.glb"
+                        poster="https://782771295fc926251f8dc891d8142c83.cdn.bubble.io/f1729245405080x809148091025550200/Screenshot%202024-10-18%20at%203.56.06%E2%80%AFPM.png"
+                        shadow-intensity="1"
+                        camera-controls
+                        touch-action="pan-y"
+                        style="width: 100%; height: 100%;"
+                    ></model-viewer>
+                </div>
+                <div class="avatar-info">
+                    <h2 class="avatar-name">CESSNA 152</h2>
+                    <p class="avatar-title">AI SUPPORT GENIUS</p>
+                </div>
+            </div>
+            <div class="chat-section">
+                <div class="message user hide">
+                    <div class="message-content">How do you replace a Cessna 152 propeller?</div>
+                </div>
+                <div class="message hide">
+                    <img src="/placeholder.svg?height=40&width=40" alt="AI" class="avatar-icon">
+                    <div class="message-content"></div> <!-- Empty content to maintain structure -->
+                </div>
+                <div class="message hide">
+                    <img src="/placeholder.svg?height=40&width=40" alt="AI" class="avatar-icon">
+                    <div class="message-content"></div> <!-- Empty content to maintain structure -->
+                </div>
+                
+                <!-- <div class="highlight-message">
+                    Lets move on to engine maintanence.
+                </div> -->
+            </div>
+        </div>
+        <div class="footer">
+            <div class="avatar-list">
+                <img id="aircraft" src="/placeholder.svg?height=40&width=40" alt="Cessna 152" class="model-selector" data-src="https://782771295fc926251f8dc891d8142c83.cdn.bubble.io/f1729245303885x109221669710184880/ImageToStl.com_c1.glb">
+                <img id="engine" src="/placeholder.svg?height=40&width=40" alt="Wasp Engine" class="model-selector" data-src="https://782771295fc926251f8dc891d8142c83.cdn.bubble.io/f1729246008063x378881407102160600/wasp_engine.dwg.GLB">
+                <img id="prop" src="/placeholder.svg?height=40&width=40" alt="3BP" class="model-selector" data-src="https://782771295fc926251f8dc891d8142c83.cdn.bubble.io/f1729252054199x693848703050119300/3bp.glb">
+                <button class="add-avatar-btn">+</button>
+            </div>
+            <div class="input-area">
+                <input type="text" class="message-input" placeholder="Enter your message...">
+                <button class="send-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

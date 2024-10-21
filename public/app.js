@@ -18,6 +18,8 @@ document.querySelector('.message-input').addEventListener('keypress', async func
             // Add the message to the thread using the add-message API
             const threadId = localStorage.getItem('thread_id');
             await addMessageAndRunThread(threadId, message);
+            console.log('message added to thread ' + threadId);
+            
             // setTimeout(() => runThread(threadId), 1000);
 
             // if (threadId) {
@@ -32,7 +34,7 @@ document.querySelector('.message-input').addEventListener('keypress', async func
     }
 });
 
-document.querySelector('.send-btn').addEventListener('click', function() {
+document.querySelector('.send-btn').addEventListener('click', async function() {
     const input = document.querySelector('.message-input');
     const message = input.value.trim();
     if (message) {
@@ -43,6 +45,12 @@ document.querySelector('.send-btn').addEventListener('click', function() {
         chatSection.appendChild(newMessage);
         chatSection.scrollTop = chatSection.scrollHeight;
         input.value = '';
+
+        // Add the message to the thread using the add-message API
+        const threadId = localStorage.getItem('thread_id');
+        await addMessageAndRunThread(threadId, message);
+        console.log('message added to thread ' + threadId);
+        
     }
 });
 
@@ -95,7 +103,8 @@ async function addMessageAndRunThread(threadId, messageContent) {
         } else {
             loadingImage.classList.remove('hide');
         }
-
+        console.log('hitting core api');
+        
         const response = await fetch('https://coreapi.inovasolutions.ai/v1/workflows/run', {
             method: 'POST',
             headers: {
@@ -113,6 +122,8 @@ async function addMessageAndRunThread(threadId, messageContent) {
         });
 
         if (response.ok) {
+            console.log('response recieved');
+            
             const result = await response.json();
             const aiResponseText = result.data.outputs.text;
 
@@ -200,6 +211,9 @@ function displayImage(imageUrl) {
 
             modal.appendChild(modalImage);
             document.body.appendChild(modal);
+
+            console.log('image display function complete');
+            
 
             // Close the modal when clicked
             modal.addEventListener('click', function() {

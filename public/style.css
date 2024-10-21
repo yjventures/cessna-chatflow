@@ -100,7 +100,7 @@ body {
     justify-content: flex-end;
 }
 .message-content {
-    background-color: #2d3748;
+    /* background-color: #2d3748; */
     color: white;
     padding: 12px;
     border-radius: 16px;
